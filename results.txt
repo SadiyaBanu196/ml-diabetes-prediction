@@ -1,28 +1,27 @@
-Diabetes Classification – Model Comparison Results
-
+Diabetes Classification – Experiment Results
 Dataset: Pima Indians Diabetes Dataset
-Test Split: 20%
-Metric Focus: Recall (Diabetic class)
+Test split: 20%
+Evaluation metric: Recall (diabetic class)
 
---------------------------------------------------
+Best Random Forest parameters
+max_depth = 5
+min_samples_split = 10
+n_estimators = 300
 
 Logistic Regression
-Accuracy : 0.727
-Recall   : 0.704
+Accuracy = 0.727
+Recall = 0.704
 
-Random Forest Classifier
-Accuracy : 0.779
-Recall   : 0.778
+Random Forest (Tuned)
+Accuracy = 0.747
+Recall = 0.759
 
-Decision Tree Classifier
-Accuracy : 0.656
-Recall   : 0.426
+Decision Tree
+Accuracy = 0.675
+Recall = 0.500
 
---------------------------------------------------
-
-Final Model Selected: Random Forest
+Selected Model: Random Forest (Tuned)
 
 Reason:
-- Highest recall (detects more diabetic patients)
-- Fewer false negatives
-- Better real-world reliability for medical diagnosis
+Highest recall and accuracy.
+Better detection of diabetic patients (fewer false negatives).

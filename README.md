@@ -1,9 +1,9 @@
 Diabetes Prediction using Machine Learning
-Project Overview
+Problem
 
-This project builds a machine learning pipeline to predict whether a patient has diabetes based on medical features such as glucose, BMI, insulin, blood pressure, and skin thickness.
+Predict whether a patient has diabetes using medical diagnostic features.
 
-The goal is to compare multiple models, tune hyperparameters, and select the best performing classifier.
+Early detection is important because missing positive cases (false negatives) can be dangerous.
 
 Dataset
 
@@ -13,31 +13,29 @@ Features include:
 
 Glucose
 
-BloodPressure
-
-SkinThickness
-
-Insulin
+Blood Pressure
 
 BMI
 
+Insulin
+
 Age
+
+etc.
 
 Target:
 
-Outcome (0 = No Diabetes, 1 = Diabetes)
+Outcome (0 = Non-diabetic, 1 = Diabetic)
 
-Workflow
+Preprocessing
 
-Data preprocessing:
+Replaced invalid zeros with median values
 
-Replace zero values with median
-
-Train-test split (80/20)
+Train-test split (80/20, stratified)
 
 Feature scaling using StandardScaler
 
-Model training:
+Models Implemented
 
 Logistic Regression
 
@@ -45,77 +43,25 @@ Random Forest
 
 Decision Tree
 
-Model optimization:
-
-Hyperparameter tuning using GridSearchCV
-
-Class imbalance handled using class_weight = balanced
-
-Evaluation metrics:
-
-Accuracy
-
-Classification Report
-
-Recall (important for medical prediction)
+Random Forest was tuned using GridSearchCV.
 
 Results
+Model	Accuracy	Recall (Diabetic)
+Logistic Regression	0.727	0.704
+Random Forest (Tuned)	0.747	0.759
+Decision Tree	0.675	0.500
+Final Model
 
-Logistic Regression
-Accuracy: 0.727
+Random Forest
 
-Random Forest (Best Model)
-Accuracy: 0.746
-Recall: 0.759
+Reason:
+Chosen for highest recall and better identification of diabetic patients.
 
-Decision Tree
-Accuracy: 0.668
-
-Random Forest performed best after tuning.
-
+How to Run
+python diabetes.py
 Tech Stack
 
 Python
-
 pandas
-
-numpy
-
 scikit-learn
-
-How to Run
-
-Install dependencies:
-pip install pandas numpy scikit-learn
-
-Run:
-python diabetes.py
-
-Project Structure
-
-D2/
-│── diabetes.py
-│── diabetes.csv
-│── README.md
-
-Key Learnings
-
-Data cleaning improves model quality
-
-Scaling is important for linear models
-
-Random Forest performs well on tabular data
-
-Hyperparameter tuning improves performance
-
-Model comparison is critical before final selection
-
-Future Improvements
-
-Cross-validation
-
-Model saving with joblib
-
-Streamlit/Flask deployment
-
-Feature engineering
+NumPy
